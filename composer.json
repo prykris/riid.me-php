@@ -1,0 +1,46 @@
+{
+    "name": "riidme/php-sdk",
+    "description": "Official PHP SDK for riid.me URL shortener service",
+    "type": "library",
+    "require": {
+        "php": "^8.3",
+        "psr/http-client": "^1.0.3",
+        "psr/http-factory": "^1.1.0",
+        "psr/http-message": "^2.0",
+        "psr/log": "^3.0.2",
+        "php-http/discovery": "^1.20.0",
+        "php-http/client-common": "^2.7.2",
+        "php-http/httplug": "^2.4.1",
+        "php-http/message": "^1.16.2"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.69.1",
+        "guzzlehttp/guzzle": "^7.9.2",
+        "php-http/mock-client": "^1.6.1",
+        "phpstan/phpstan": "^1.12.19",
+        "phpunit/phpunit": "^11.5.8",
+        "symfony/var-dumper": "^7.2.3",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Riidme\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Riidme\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "cs-fix": "php-cs-fixer fix",
+        "analyse": "phpstan analyse"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        },
+        "sort-packages": true
+    }
+}
