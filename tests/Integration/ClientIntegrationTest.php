@@ -37,8 +37,6 @@ class ClientIntegrationTest extends TestCase
         
         $result = $this->client->shorten($longUrl);
         
-        die(print_r($result));
-
         $this->assertStringStartsWith('https://riid.me/', $result->getShortUrl());
         
         // Verify the shortened URL returns a redirect
