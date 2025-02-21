@@ -28,20 +28,22 @@ composer require riidme/php-sdk
 
 ```php
 use Riidme\Client;
-// Initialize the client
-$client = new Client([
-'base_url' => 'https://riid.me', // Optional, defaults to https://riid.me
-'timeout' => 5, // Optional, defaults to 5 seconds
-'retries' => 3 // Optional, defaults to 3 retries
+use Riidme\Exception\RiidmeException;
+
+// Initialize using factory method
+$client = Client::create([
+    'base_url' => 'https://riid.me',  // Optional
+    'timeout'  => 5,                  // Optional
+    'retries'  => 3                   // Optional
 ]);
+
 try {
-// Shorten a URL
-$result = $client->shorten('https://example.com/very/long/url');
-// Get the shortened URL
-echo $result->getShortUrl(); // https://riid.me/abc123
+    $result = $client->shorten('https://example.com/very/long/url');
+    echo $result->getShortUrl(); // https://riid.me/abc123
+    // or simply
+    echo $result; // https://riid.me/abc123
 } catch (RiidmeException $e) {
-// Handle errors
-echo "Error: " . $e->getMessage();
+    echo "Error: " . $e->getMessage();
 }
 ```
 
@@ -59,6 +61,13 @@ If you're using Laravel, check out our dedicated Laravel package [riidme/laravel
 ## ✅ Testing
 
 ```bash
-composer install
-composer run test
+composer test
 ```
+
+## 🤝 Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## 📄 License
+
+The Apache2 License. Please see [License File](LICENSE.md) for more information.
